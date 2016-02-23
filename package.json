@@ -1,0 +1,15 @@
+{
+  "name": "lodash-fp-docs",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jeroen Engels <jfm.engels@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "docdown": "^0.4.1"
+  }
+}
