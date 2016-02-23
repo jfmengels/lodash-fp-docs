@@ -23,3 +23,11 @@ Lodash's sources are generated using [`docdown`](https://github.com/jdalton/docd
 - group `...values` arguments into an array argument
 - remove calls to `console.log()` that aim to demonstrate a value was mutated (only in examples)
 - inject optional arguments that have become mandatory using their default value (only in examples)
+
+## Run it
+
+```
+npm i
+npm run doc:fp
+// now open doc/fp.md!
+```
