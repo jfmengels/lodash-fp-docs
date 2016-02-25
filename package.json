@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "doc": "mkdir doc && node lib/doc/build github",
-    "doc:fp": "mkdir doc && node lib/doc/build --fp github",
+    "doc": "mkdir doc ; node lib/doc/build github",
+    "doc:fp": "mkdir doc ; node lib/doc/build --fp github",
     "style": "jscs lib/**/*.js",
     "test": "node test/test-fp-doc"
   },
