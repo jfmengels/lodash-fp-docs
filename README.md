@@ -1,7 +1,7 @@
-# lodash fp doc generator
+# `lodash/fp` doc generator
 
-This project aims to generate proper docs for `lodash`'s functional programming flavor, aka `lodash/fp`.
-The end goal would be generate a doc similar to the [official documentation](https://lodash.com/docs).
+This project aims to generate proper docs for `Lodash`'s functional programming flavor, aka `lodash/fp`.
+The end goal would be generate a doc similar to the [official documentation](https://lodash.com/docs). The result can be found **[HERE](https://gist.github.com/jfmengels/6b973b69c491375117dc)**.
 
 ## Why
 
@@ -17,12 +17,12 @@ Lodash FP aims to combine the great functionality given by the library and the i
 
 ## What now
 
-Lodash's sources are generated using [`docdown`](https://github.com/jdalton/docdown). What is does is read the source files, extract the JSDoc comments, then generate a Markdown file. By overriding Docdown's behavior, we can change the documentation to, in the methods' signature and example:
+Lodash's sources are generated using [`docdown`](https://github.com/jdalton/docdown). What it does is read the source files, extract the JSDoc comments, then generate a Markdown file. By overriding Docdown's behavior, we can change the documentation too, in the methods' signature and example:
 - change the order of arguments
 - remove now ignored arguments
 - group `...values` arguments into an array argument
-- remove calls to `console.log()` that aim to demonstrate a value was mutated (only in examples)
-- inject optional arguments that have become mandatory using their default value (only in examples)
+- remove calls to `console.log()` that aim to demonstrate a value was mutated (only in example)
+- inject optional arguments that have become mandatory using their default value (only in example)
 
 ## Run it
 
