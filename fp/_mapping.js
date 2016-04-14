@@ -30,17 +30,19 @@ exports.aliasToReal = {
   'init': 'initial',
   'invertObj': 'invert',
   'juxt': 'over',
-  'mapObj': 'mapValues',
   'omitAll': 'omit',
   'nAry': 'ary',
   'path': 'get',
   'pathEq': 'matchesProperty',
   'pathOr': 'getOr',
+  'paths': 'at',
   'pickAll': 'pick',
   'pipe': 'flow',
+  'pluck': 'map',
   'prop': 'get',
-  'propOf': 'propertyOf',
+  'propEq': 'matchesProperty',
   'propOr': 'getOr',
+  'props': 'at',
   'unapply': 'rest',
   'unnest': 'flatten',
   'useWith': 'overArgs',
@@ -52,9 +54,10 @@ exports.aliasToReal = {
 exports.aryMethod = {
   '1': [
     'attempt', 'castArray', 'ceil', 'create', 'curry', 'curryRight', 'floor',
-    'fromPairs', 'invert', 'iteratee', 'memoize', 'method', 'methodOf', 'mixin',
-    'over', 'overEvery', 'overSome', 'rest', 'reverse', 'round', 'runInContext',
-    'spread', 'template', 'trim', 'trimEnd', 'trimStart', 'uniqueId', 'words'
+    'flow', 'flowRight', 'fromPairs', 'invert', 'iteratee', 'memoize', 'method',
+    'methodOf', 'mixin', 'over', 'overEvery', 'overSome', 'rest', 'reverse',
+    'round', 'runInContext', 'spread', 'template', 'trim', 'trimEnd', 'trimStart',
+    'uniqueId', 'words'
   ],
   '2': [
     'add', 'after', 'ary', 'assign', 'assignIn', 'at', 'before', 'bind', 'bindAll',
@@ -67,16 +70,17 @@ exports.aryMethod = {
     'get', 'groupBy', 'gt', 'gte', 'has', 'hasIn', 'includes', 'indexOf',
     'intersection', 'invertBy', 'invoke', 'invokeMap', 'isEqual', 'isMatch',
     'join', 'keyBy', 'lastIndexOf', 'lt', 'lte', 'map', 'mapKeys', 'mapValues',
-    'matchesProperty', 'maxBy', 'meanBy', 'merge', 'minBy', 'multiply', 'omit', 'omitBy',
-    'overArgs', 'pad', 'padEnd', 'padStart', 'parseInt', 'partial', 'partialRight',
-    'partition', 'pick', 'pickBy', 'pull', 'pullAll', 'pullAt', 'random', 'range',
-    'rangeRight', 'rearg', 'reject', 'remove', 'repeat', 'restFrom', 'result',
-    'sampleSize', 'some', 'sortBy', 'sortedIndex', 'sortedIndexOf', 'sortedLastIndex',
-    'sortedLastIndexOf', 'sortedUniqBy', 'split', 'spreadFrom', 'startsWith',
-    'subtract', 'sumBy', 'take', 'takeRight', 'takeRightWhile', 'takeWhile', 'tap',
-    'throttle', 'thru', 'times', 'trimChars', 'trimCharsEnd', 'trimCharsStart',
-    'truncate', 'union', 'uniqBy', 'uniqWith', 'unset', 'unzipWith', 'without',
-    'wrap', 'xor', 'zip', 'zipObject', 'zipObjectDeep'
+    'matchesProperty', 'maxBy', 'meanBy', 'merge', 'minBy', 'multiply', 'nth',
+    'omit', 'omitBy', 'overArgs', 'pad', 'padEnd', 'padStart', 'parseInt',
+    'partial', 'partialRight', 'partition', 'pick', 'pickBy', 'pull', 'pullAll',
+    'pullAt', 'random', 'range', 'rangeRight', 'rearg', 'reject', 'remove',
+    'repeat', 'restFrom', 'result', 'sampleSize', 'some', 'sortBy', 'sortedIndex',
+    'sortedIndexOf', 'sortedLastIndex', 'sortedLastIndexOf', 'sortedUniqBy',
+    'split', 'spreadFrom', 'startsWith', 'subtract', 'sumBy', 'take', 'takeRight',
+    'takeRightWhile', 'takeWhile', 'tap', 'throttle', 'thru', 'times', 'trimChars',
+    'trimCharsEnd', 'trimCharsStart', 'truncate', 'union', 'uniqBy', 'uniqWith',
+    'unset', 'unzipWith', 'without', 'wrap', 'xor', 'zip', 'zipObject',
+    'zipObjectDeep'
   ],
   '3': [
     'assignInWith', 'assignWith', 'clamp', 'differenceBy', 'differenceWith',
@@ -244,7 +248,17 @@ exports.remap = {
   'trimCharsStart': 'trimStart'
 };
 
-/** Used to track methods that skip `_.rearg`. */
+/** Used to track methods that skip fixing their arity. */
+exports.skipFixed = {
+  'castArray': true,
+  'flow': true,
+  'flowRight': true,
+  'iteratee': true,
+  'mixin': true,
+  'runInContext': true
+};
+
+/** Used to track methods that skip rearranging arguments. */
 exports.skipRearg = {
   'add': true,
   'assign': true,
@@ -263,6 +277,7 @@ exports.skipRearg = {
   'matchesProperty': true,
   'merge': true,
   'multiply': true,
+  'overArgs': true,
   'partial': true,
   'partialRight': true,
   'random': true,
