@@ -1,4 +1,4 @@
-;(function() {
+(function() {
   /** Used as a safe reference for `undefined` in pre-ES5 environments. */
   var undefined;
 
@@ -6,10 +6,10 @@
   var root = (typeof global == 'object' && global) || this;
 
   var phantom = root.phantom,
-      amd = root.define && define.amd,
-      document = !phantom && root.document,
-      noop = function() {},
-      argv = root.process && process.argv;
+    amd = root.define && define.amd,
+    document = !phantom && root.document,
+    noop = function() {},
+    argv = root.process && process.argv;
 
   /** Use a single "load" function. */
   var load = (!amd && typeof require == 'function')
@@ -23,7 +23,7 @@
   ));
 
   /** Load stable Lodash and QUnit Extras. */
-  var _ = root._ || load('../lodash.js');
+  var _ = root._ || load('lodash');
   if (_) {
     _ = _.runInContext(root);
   }
@@ -32,9 +32,9 @@
     QUnitExtras.runInContext(root);
   }
 
-  var mapping = root.mapping || load('../fp/_mapping.js'),
-      applyFPMapping = load('../lib/doc/apply-fp-mapping'),
-      Entry = load('docdown/lib/entry');
+  var mapping = root.mapping || load('lodash/fp/_mapping'),
+    applyFPMapping = load('../lib/doc/apply-fp-mapping'),
+    Entry = load('docdown/lib/entry');
 
   /*--------------------------------------------------------------------------*/
 
