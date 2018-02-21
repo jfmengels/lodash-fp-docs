@@ -22,7 +22,7 @@
   "dependencies": {
     "docdown": "~0.5.0",
     "jscodeshift": "^0.3.13",
-    "lodash": "^4.5.1",
+    "lodash": "latest",
     "recast": "^0.11.2"
   }
 }
