@@ -1,7 +1,7 @@
 # `lodash/fp` doc generator
 
 This project aims to generate proper docs for `Lodash`'s functional programming flavor, aka `lodash/fp`.
-The end goal would be generate a doc similar to the [official documentation](https://lodash.com/docs). The result can be found **[HERE](https://gist.github.com/remyoudemans/9c5e07fa32904a7664ef47fc0b49c3bd)**.
+The end goal would be generate a doc similar to the [official documentation](https://lodash.com/docs). The result can be found **[HERE](https://gist.github.com/jfmengels/6b973b69c491375117dc)**.
 
 ## Why
 
