@@ -5,7 +5,7 @@ The end goal would be generate a doc similar to the [official documentation](htt
 
 ## Why
 
-Lodash FP aims to combine the great functionality given by the library and the ideas of functional programming. Only, this behavior is [documented]([FP Guide](https://github.com/lodash/lodash/wiki/FP-Guide)) in a manner unbefitting of what users are used to with the [official documentation](https://lodash.com/docs).
+Lodash FP aims to combine the great functionality given by the library and the ideas of functional programming. Only, this behavior is [documented](https://github.com/lodash/lodash/wiki/FP-Guide) in a manner unbefitting of what users are used to with the [official documentation](https://lodash.com/docs).
 
 ## What changed in FP?
 
